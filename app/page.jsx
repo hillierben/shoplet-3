@@ -6,7 +6,8 @@ export default function Home() {
     <div>
 
     <div className="pge-prd-list">
-      <ProductList />
+      <h1>BALLS</h1>
+      {/* <ProductList /> */}
     </div>
 
   </div>
