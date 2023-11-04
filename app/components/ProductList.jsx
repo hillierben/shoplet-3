@@ -25,29 +25,30 @@ export default async function ProductList() {
   }
 
   return (
-    <ul className={styles.list}>
-      {products?.map((product) => (
-          <li key={product.id} className={styles.item}>
-            <div className={styles.container}>
-            <img 
-                className={styles.img} 
-                src={product.image} 
-                alt={product.item}
-            />
-            </div>
-            <div className={styles.price}>
-              <span>£
-                <span className={styles.priceText}>
-                  {convertTwoDecimal(product.price)}
-                </span>
-              </span>
-            </div>
-            <div className={styles.info}>
-              <div>{product.item}</div>
-              <div>{product.description}</div>
-            </div>
-          </li>
-      ))}
-    </ul>
+    <h1>Poop</h1>
+    // <ul className={styles.list}>
+    //   {products?.map((product) => (
+    //       <li key={product.id} className={styles.item}>
+    //         <div className={styles.container}>
+    //         <img 
+    //             className={styles.img} 
+    //             src={product.image} 
+    //             alt={product.item}
+    //         />
+    //         </div>
+    //         <div className={styles.price}>
+    //           <span>£
+    //             <span className={styles.priceText}>
+    //               {convertTwoDecimal(product.price)}
+    //             </span>
+    //           </span>
+    //         </div>
+    //         <div className={styles.info}>
+    //           <div>{product.item}</div>
+    //           <div>{product.description}</div>
+    //         </div>
+    //       </li>
+    //   ))}
+    // </ul>
   )
 }
