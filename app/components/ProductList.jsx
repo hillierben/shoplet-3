@@ -6,14 +6,16 @@ import styles from '../styles/productList.module.css'
 export default async function ProductList() {
   const supabase = createServerComponentClient({cookies})
   
-  const { data } = await supabase.from('products')
+  const { data } = await supabase
+    .from('products')
     .select()
+    // .range(0, 3)
 
   
   // copy all products into a new list - later this function will FILTER out products based on SEARCH and CATEGORIES
   const products = []
-  data.map((item) => {
-    products.push(item)
+  data?.map((item) => {
+    products?.push(item)
   })
 
 
@@ -24,7 +26,7 @@ export default async function ProductList() {
 
   return (
     <ul className={styles.list}>
-      {products.map((product) => (
+      {products?.map((product) => (
           <li key={product.id} className={styles.item}>
             <div className={styles.container}>
             <img 
