@@ -8,7 +8,7 @@ export default function Home() {
 
     <div className="pge-prd-list">
       <h1>TEST</h1>
-      {/* <ProductList /> */}
+      <ProductList />
 
     </div>
 
