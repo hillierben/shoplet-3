@@ -13,11 +13,12 @@ export default async function ProductList2() {
 
   return (
     <div>
-      <ul>
+      Poop
+      {/* <ul>
         {data.map((date) => (
           <li key={date.id}>{date.body}</li>
           ))}
-      </ul>
+      </ul> */}
     </div>
 
   )
