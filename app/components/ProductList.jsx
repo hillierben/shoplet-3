@@ -13,10 +13,10 @@ export default async function ProductList() {
 
   
   // copy all products into a new list - later this function will FILTER out products based on SEARCH and CATEGORIES
-  const products = []
-  data?.map((item) => {
-    products?.push(item)
-  })
+  // const products = []
+  // data?.map((item) => {
+  //   products?.push(item)
+  // })
 
 
   // convert all prices to 2 decimal places
