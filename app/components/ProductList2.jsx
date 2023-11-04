@@ -1,6 +1,7 @@
 
 import styles from '../styles/productList.module.css'
 
+export const dynamic = 'foce dynamic';
 
 export default async function ProductList2() {
   
