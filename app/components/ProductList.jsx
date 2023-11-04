@@ -11,7 +11,7 @@ export default async function ProductList() {
   const { data } = await supabase
     .from('products')
     .select()
-    .range(0, 3)
+    .range(0, 7)
 
   
   // copy all products into a new list - later this function will FILTER out products based on SEARCH and CATEGORIES
