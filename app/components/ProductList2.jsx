@@ -1,4 +1,4 @@
-
+"use client"
 import styles from '../styles/productList.module.css'
 
 export const dynamic = 'force-dynamic';
