@@ -1,0 +1,58 @@
+.block {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: black;
+  position: relative;
+  top: -4px;
+  left: -7px;
+  transform: rotate(-45deg);
+}
+
+.reflection {
+  width: 50%;
+  height: 50%;
+  background: rgb(191, 191, 191);
+  border-bottom-right-radius: 90%;
+  transform: rotate(45deg);
+  position: absolute;
+  left: 8px;
+  top: 8px;
+}
+
+.text {
+  font-size:xx-large;
+}
+
+@media screen and (max-width: 600px) {
+  .text {
+    display: none;
+  }
+}
+
+.teardrop {
+  width: 25px;
+  height: 25px;
+  display: block;
+  /* padding: 30px 20px 50px 20px; */
+  background: black;
+  position: relative;
+  top: 4px;
+  border-top-left-radius: 90px;
+  border-bottom-left-radius: 143px;
+  border-bottom-right-radius: 90px;
+  transform: rotate(-45deg);
+  margin: 0 3px 0 3px;
+  box-shadow: 1.5px 0 3px rgb(211, 211, 211);
+}
+
+.teardrop:hover {
+  top: 7px;
+}
+
+.wrap {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+}

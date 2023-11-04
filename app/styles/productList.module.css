@@ -1,0 +1,45 @@
+
+.container {
+  /* border: black solid; */
+}
+
+.img {
+  width: 100%;
+  height: 300px;
+  object-fit:cover;
+  margin-top: 0px;
+}
+
+.info {
+  padding: 10px;
+}
+
+.item {
+  position: relative;
+  box-shadow: 1px 1px 3px rgb(171, 171, 171);
+  border-radius: 4px;
+  margin: 5px;
+}
+
+.list {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+  margin: auto;
+  max-width: 1300px;
+}
+
+.price {
+  background: red;
+  width: 84px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  padding: 0 5px 0 5px;
+}
+
+.priceText {
+  font-size: x-large;
+}
