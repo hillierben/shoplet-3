@@ -20,7 +20,6 @@ export default async function ProductList() {
     products?.push(item)
   })
 
-
   // convert all prices to 2 decimal places
   function convertTwoDecimal(price) {
     return price.toFixed(2)
