@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Logo from "./Logo";
 import Logo2 from "./Logo2";
 import CategoryBar from "./CategoryBar";
 
