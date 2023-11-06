@@ -26,7 +26,6 @@ export default function Navbar() {
             <div className={styles.navlistsml}>FILL</div>
           </span>
       </nav>
-      <CategoryBar />
     </>
 
   )

@@ -1,7 +1,5 @@
 
-import ProductList from "../components/ProductList";
-
-let noProducts = 8
+import ProductList from "../../components/ProductList";
 
 export default async function Home({params}) {
 

@@ -2,20 +2,24 @@
 import styles from '../styles/productList.module.css'
 import supabase from "../config/supabaseClient";
 import Paginate from './Paginate';
+import Products from './Products';
+import CategoryBar from './CategoryBar';
 
 export const dynamic = "force-dynamic";
 
 // eslint-disable-next-line @next/next/no-async-client-component
 export default async function ProductList({params}) {
 
+  const allCategories = ['all', 'mens', 'womens', 'tops', 't-shirts', 'trousers', 'shorts', 'hats', 'bags', 'accessories']
+
   // conver url param to Number. If less than 1, set to 1 as default
   const paginate = params?.productsPaginate > 1 ? Number(params.productsPaginate) : 1
-  console.log(paginate)
+  const category = params?.category
 
   const { data } = await supabase
     .from('products')
     .select()
-    .like('categories', '%unis%')
+    .textSearch('categories', `${category}`)
     .range(((paginate -1) * 8), (((paginate - 1) * 8) + 7))
   
   // copy all products into a new list - later this function will FILTER out products based on SEARCH and CATEGORIES
@@ -24,38 +28,11 @@ export default async function ProductList({params}) {
     products?.push(item)
   })
 
-  // convert all prices to 2 decimal places
-  function convertTwoDecimal(price) {
-    return price.toFixed(2)
-  }
-
   return (
     <>
-      <Paginate pageNo={paginate} noProducts={products.length} />
-        <ul className={styles.list}>
-          {products?.map((product) => (
-              <li key={product.id} className={styles.item}>
-                <div className={styles.container}>
-                <img 
-                    className={styles.img} 
-                    src={product.image} 
-                    alt={product.item}
-                />
-                </div>
-                <div className={styles.price}>
-                  <span>£
-                    <span className={styles.priceText}>
-                      {convertTwoDecimal(product.price)}
-                    </span>
-                  </span>
-                </div>
-                <div className={styles.info}>
-                  <div>{product.item}</div>
-                  <div>{product.description}</div>
-                </div>
-              </li>
-          ))}
-        </ul>
+    <CategoryBar />
+      <Paginate pageNo={paginate} noProducts={products.length} params={params} />
+        <Products products={products} />
     </>
   )
 }

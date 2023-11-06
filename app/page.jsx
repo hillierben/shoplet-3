@@ -1,15 +1,5 @@
+import { redirect } from "next/navigation";
 
-import Paginate from "./components/Paginate";
-import ProductList from "./components/ProductList";
-
-export default function Home() {
-
-  return (
-    <div>
-        <div className="pge-prd-list">
-            <ProductList />
-        </div>
-  </div>
-   
-  )
+export default function page() {
+  redirect('/products/1')
 }
