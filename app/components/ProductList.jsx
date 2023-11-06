@@ -1,18 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
-import { cookies } from "next/headers"
 import styles from '../styles/productList.module.css'
+import supabase from "../config/supabaseClient";
+import Paginate from './Paginate';
 
 export const dynamic = "force-dynamic";
 
-export default async function ProductList() {
-  const supabase = createServerComponentClient({cookies})
-  
+// eslint-disable-next-line @next/next/no-async-client-component
+export default async function ProductList({pageNo, checkLength, params}) {
+
+  // conver url param to Number. If less than 1, set to 1 as default
+  const paginate = params?.productsPaginate > 1 ? Number(params.productsPaginate) : 1
+  console.log(paginate)
+
   const { data } = await supabase
     .from('products')
     .select()
-    .range(0, 7)
-
+    // .like('categories', '%unis%')
+    .range(((paginate -1) * 8), (((paginate - 1) * 8) + 7))
   
   // copy all products into a new list - later this function will FILTER out products based on SEARCH and CATEGORIES
   const products = []
@@ -26,29 +30,33 @@ export default async function ProductList() {
   }
 
   return (
-    <ul className={styles.list}>
-      {products?.map((product) => (
-          <li key={product.id} className={styles.item}>
-            <div className={styles.container}>
-            <img 
-                className={styles.img} 
-                src={product.image} 
-                alt={product.item}
-            />
-            </div>
-            <div className={styles.price}>
-              <span>£
-                <span className={styles.priceText}>
-                  {convertTwoDecimal(product.price)}
-                </span>
-              </span>
-            </div>
-            <div className={styles.info}>
-              <div>{product.item}</div>
-              <div>{product.description}</div>
-            </div>
-          </li>
-      ))}
-    </ul>
+    <>
+      <Paginate pageNo={paginate} noProducts={products.length} />
+        <ul className={styles.list}>
+          {products?.map((product) => (
+              <li key={product.id} className={styles.item}>
+                <div className={styles.container}>
+                <img 
+                    className={styles.img} 
+                    src={product.image} 
+                    alt={product.item}
+                />
+                </div>
+                <div className={styles.price}>
+                  <span>£
+                    <span className={styles.priceText}>
+                      {convertTwoDecimal(product.price)}
+                    </span>
+                  </span>
+                </div>
+                <div className={styles.info}>
+                  <div>{product.item}</div>
+                  <div>{product.description}</div>
+                </div>
+              </li>
+          ))}
+        </ul>
+    </>
   )
 }
+

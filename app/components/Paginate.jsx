@@ -1,12 +1,21 @@
+"use client"
+
 import Link from 'next/link'
 import React from 'react'
+import styles from '../styles/paginate.module.css'
+import { useRouter } from 'next/navigation'
 
-export default function Paginate() {
+export default function Paginate({pageNo, noProducts}) {
+
+  const router = useRouter()
+
+  const page = pageNo < 1 ? 1 : pageNo
+
   return (
-    <div className='pagi-div'>
-      <Link href='#' className='pagi-btn'>&#8592;</Link>
-      <p className='pagi-pge'>Page 1 of 1</p>
-      <Link href='#' className='pagi-btn'>&rarr;</Link>
+    <div className={styles.pagidiv}>
+      <Link href={`/${page - 1 < 1 ? 1 : page - 1}`} className={page >= 2 ? styles.pagibtn : styles.pagibtnHide}>&#8592;</Link>
+      <p className={styles.pagipge}>Page {pageNo}</p>
+      <Link href={`/${page + 1}`} className={noProducts >= 8 ? styles.pagibtn : styles.pagibtnHide}>&rarr;</Link>
     </div>
   )
 }

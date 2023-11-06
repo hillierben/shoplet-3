@@ -1,0 +1,35 @@
+.pagibtn {
+  margin: 0 5px;
+  border: solid #ddd;
+  padding: 0 8px;
+  border-radius: 5px;
+}
+
+.pagibtnHide {
+  margin: 0 5px;
+  border: solid #ddd;
+  padding: 0 8px;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.pagibtn:hover {
+  box-shadow: 1px 2px 3px #ddd;
+  transform: scale(1.05);
+}
+
+.pagibtn:active {
+  transform: scale(1);
+}
+
+.pagidiv {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+
+.pagipge {
+  align-self: center;
+}
+

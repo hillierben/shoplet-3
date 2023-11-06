@@ -1,0 +1,26 @@
+.nav {
+  border-bottom: solid black;
+  @apply p-2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  @apply 
+
+    mx-auto;
+  align-items: center;
+  
+}
+
+.navlist {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.1em;
+}
+
+.navlistsml {
+  display: none;
+}
+
+.nav > span > ul > li {
+  padding: 0 8px; 
+}

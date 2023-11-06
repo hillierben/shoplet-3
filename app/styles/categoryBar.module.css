@@ -1,0 +1,41 @@
+.categories {
+  border: none;
+  width: 100%;
+  padding: 10px;
+  max-width: 1500px;
+  margin: auto;
+  font-size: 1.1em;
+}
+
+@media screen and (max-width: 800px) {
+  .catul {
+    display: none !important;
+  }
+  .catsml {
+    display: flex !important;
+    justify-content: space-evenly;
+  }
+  .navlist {
+    display: none !important;
+  }
+  .navlist-sml {
+    display: flex !important;
+    margin: 10px;
+  }
+}
+
+.catsml {
+  display: none;
+}
+
+.catul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.catul > li:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  text-shadow: 2px 2px #eeeeee ;
+} 

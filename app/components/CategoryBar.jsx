@@ -1,9 +1,10 @@
 import React from 'react'
+import styles from '../styles/categoryBar.module.css'
 
 export default function CategoryBar() {
   return (
-    <div className="categories">
-      <ul className="cat-ul">
+    <div className={styles.categories}>
+      <ul className={styles.catul}>
         <li>Mens</li>
         <li>Womens</li>
         <li>Tops</li>
@@ -14,7 +15,7 @@ export default function CategoryBar() {
         <li>Bags</li>
         <li>Accessories</li>
       </ul>
-      <div className="cat-sml">Categories ---</div>
+      <div className={styles.catsml}>Categories ---</div>
     </div>
   )
 }
