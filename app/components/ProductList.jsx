@@ -6,7 +6,7 @@ import Paginate from './Paginate';
 export const dynamic = "force-dynamic";
 
 // eslint-disable-next-line @next/next/no-async-client-component
-export default async function ProductList({pageNo, checkLength, params}) {
+export default async function ProductList({params}) {
 
   // conver url param to Number. If less than 1, set to 1 as default
   const paginate = params?.productsPaginate > 1 ? Number(params.productsPaginate) : 1
@@ -15,7 +15,7 @@ export default async function ProductList({pageNo, checkLength, params}) {
   const { data } = await supabase
     .from('products')
     .select()
-    // .like('categories', '%unis%')
+    .like('categories', '%unis%')
     .range(((paginate -1) * 8), (((paginate - 1) * 8) + 7))
   
   // copy all products into a new list - later this function will FILTER out products based on SEARCH and CATEGORIES
