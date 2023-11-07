@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import React from 'react'
 import styles from '../styles/paginate.module.css'
-import { useRouter } from 'next/navigation'
 
 export default function Paginate({pageNo, noProducts, params}) {
 
