@@ -21,6 +21,8 @@ export default async function ProductList({params}) {
     .select()
     .textSearch('categories', `${category}`)
     .range(((paginate -1) * 8), (((paginate - 1) * 8) + 7))
+
+  !data && console.log('loading')
   
   // copy all products into a new list - later this function will FILTER out products based on SEARCH and CATEGORIES
   const products = []
@@ -32,6 +34,7 @@ export default async function ProductList({params}) {
     <>
     <CategoryBar />
       <Paginate pageNo={paginate} noProducts={products.length} params={params} />
+      {!data && <h1>Loading...</h1>}
         <Products products={products} />
     </>
   )

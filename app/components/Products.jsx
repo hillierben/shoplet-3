@@ -13,7 +13,6 @@ export default function Products({products}) {
 
   return (
     <div>
-      {!products && <h1>Loading...</h1>}
       <ul className={styles.list}>
           {products?.map((product) => (
               <li key={product.id} className={styles.item}>
